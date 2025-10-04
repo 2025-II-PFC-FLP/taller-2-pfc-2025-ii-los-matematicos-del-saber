@@ -1,19 +1,18 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/lEw1Qm1j)
-# Asignación: [Nombre de la asignación]
+# Asignación: Taller 2 Funciones de alto orden
 
-**Fecha:** [DD/MM/AAAA]
-**Curso:** [Nombre del Curso]
+**Fecha:** [06/10/2025]
+**Curso:** FUNDAMENTOS DE PROGRAMACIÓN FUNCIONAL Y CONCURRENTE
 
 ---
 
 ## 👥 Integrantes del Grupo
 
-| Nombre Completo | Código | Rol            | Correo Electrónico        |
-| --------------- | ------ | -------------- | ------------------------- |
-| [Estudiante 1]  | 123456 | [Líder/Colab.] | [correo1@institucion.edu] |
-| [Estudiante 2]  | 123457 | [Colaborador]  | [correo2@institucion.edu] |
-| [Estudiante 3]  | 123458 | [Colaborador]  | [correo3@institucion.edu] |
-
+| Nombre Completo  | Código  | Rol              | Correo Electrónico        |
+| ---------------  | ------  | --------------   | ------------------------- |
+| [Estudiante 2]   | 123457  | [Líder/Colab.]   | [correo2@institucion.edu] |
+| [Estudiante 3]   | 123458  | [Colaborador]    | [correo3@institucion.edu] |
+| Juan Felipe Ruiz | 2359397 | [Colaborador 1]  | [juan.ruiz.lopez@correounivalle.edu.co] |
 ---
 
 ## 📌 Descripción de la Asignación
