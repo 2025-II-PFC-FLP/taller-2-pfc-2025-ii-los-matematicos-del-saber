@@ -2,8 +2,9 @@ package taller
 
 import org.scalatest.funsuite.AnyFunSuite
 import org.junit.runner.RunWith
-import org.scalactic.Tolerance.convertNumericToPlusOrMinusWrapper
 import org.scalatestplus.junit.JUnitRunner
+import org.scalactic.Tolerance.convertNumericToPlusOrMinusWrapper
+
 
 @RunWith(classOf[JUnitRunner])
 class ConjuntosDifusosTest extends AnyFunSuite {
@@ -18,6 +19,9 @@ class ConjuntosDifusosTest extends AnyFunSuite {
   val cd4: ConjDifuso = x => if (x % 2 == 0) 0.5 else 1.0
   val cd5: ConjDifuso = x => if (x % 2 == 0) 0.5 else 1.0
   val cd6: ConjDifuso = x => if (x % 2 == 0) 0.4 else 1.0
+  // Conjuntos auxiliares necesarios
+  val vacio: ConjDifuso = _ => 0.0
+  val lleno: ConjDifuso = _ => 1.0
 
   // ---- Tests para grande ----
   test("grande debe retornar 0.0 para valores menores o iguales a 0") {
@@ -88,8 +92,9 @@ class ConjuntosDifusosTest extends AnyFunSuite {
     }
   }
 
-  // ---- Tests solo para igualdad ----
-  test("igualdad debe ser true para dos conjuntos idénticos") {
+  //Tests para igualdad
+
+  test("igualdad debe ser true para dos conjuntos identicos") {
     assert(igualdad(cd1, cd2))
   }
 
@@ -103,5 +108,40 @@ class ConjuntosDifusosTest extends AnyFunSuite {
 
   test("igualdad debe ser false cuando hay una diferencia en la pertenencia de un valor") {
     assert(!igualdad(cd4, cd6))
+  }
+
+  //Tests para inclusion
+
+  test("un conjunto vacio esta incluido en cualquier otro") {
+    assert(inclusion(vacio, cd1))
+    assert(inclusion(vacio, cd3))
+    assert(inclusion(vacio, lleno))
+  }
+
+  test("un conjunto esta incluido en si mismo") {
+    assert(inclusion(cd1, cd1))
+    assert(inclusion(cd4, cd4))
+  }
+
+  test("cd1 esta incluido en cd2 porque son identicos") {
+    assert(inclusion(cd1, cd2))
+  }
+
+  test("cd3 no esta incluido en cd1 porque en x>=5 tiene mayor pertenencia") {
+    assert(!inclusion(cd3, cd1))
+  }
+
+  test("cd6 esta incluido en cd5 porque en cada punto es menor o igual") {
+    assert(inclusion(cd6, cd5))
+  }
+
+  test("cd5 no esta incluido en cd6 porque en x pares tiene mayor pertenencia") {
+    assert(!inclusion(cd5, cd6))
+  }
+
+  test("cualquier conjunto esta incluido en el conjunto lleno") {
+    assert(inclusion(cd1, lleno))
+    assert(inclusion(cd3, lleno))
+    assert(inclusion(cd6, lleno))
   }
 }
