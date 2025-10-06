@@ -22,7 +22,7 @@ class ConjuntosDifusosTest extends AnyFunSuite {
   val vacio: ConjDifuso = _ => 0.0
   val lleno: ConjDifuso = _ => 1.0
 
-  // ---- Tests solo para igualdad ----
+  //Tests para igualdad
 
   test("igualdad debe ser true para dos conjuntos identicos") {
     assert(igualdad(cd1, cd2))
@@ -40,7 +40,7 @@ class ConjuntosDifusosTest extends AnyFunSuite {
     assert(!igualdad(cd4, cd6))
   }
 
-  // ---- Tests para inclusion ----
+  //Tests para inclusion
 
   test("un conjunto vacio esta incluido en cualquier otro") {
     assert(inclusion(vacio, cd1))
