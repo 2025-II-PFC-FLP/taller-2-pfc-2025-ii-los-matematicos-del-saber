@@ -8,14 +8,18 @@
 
 ## 👥 Integrantes del Grupo
 
-| Nombre Completo  | Código  | Rol              | Correo Electrónico        |
-| ---------------  | ------  | --------------   | ------------------------- |
-| [Estudiante 2]   | 123457  | [Líder/Colab.]   | [correo2@institucion.edu] |
-| [Estudiante 3]   | 123458  | [Colaborador]    | [correo3@institucion.edu] |
-| Juan Felipe Ruiz | 2359397 | [Colaborador 1]  | [juan.ruiz.lopez@correounivalle.edu.co] |
+| Nombre Completo          | Código   | Rol              | Correo Electrónico                        |
+|--------------------------|----------| --------------   |-------------------------------------------|
+| Juan Diego Ospina        | 2359486  | [Líder/Colab.]   | [juan.diego.ospina@correounivalle.edu.co] |
+| Jhorman Ricardo Loaiza   | 2359710  | [Colaborador]    | [loaiza.jhorman@correounivalle.edu.co]    |
+| Juan Felipe Ruiz         | 2359397  | [Colaborador 1]  | [juan.ruiz.lopez@correounivalle.edu.co]   |
+| Mauricio Alejandro Rojas | 2359701  | [Colaborador 2]  | [mauricio.cardenas@correounivalle.edu.co] |
 ---
 
 ## 📌 Descripción de la Asignación
 
-[Breve párrafo explicando el propósito y objetivos del taller (4-6 líneas). Ejemplo:]
-_"Este taller busca analizar [tema principal] mediante [metodología]. Los objetivos incluyen [objetivo 1], [objetivo 2] y [objetivo 3], aplicando conceptos vistos en clase como [concepto relevante]."_
+Este taller busca aplicar los principios de la programación funcional al diseño y manipulación de conjuntos difusos 
+mediante el uso de funciones de alto orden en Scala. Los objetivos incluyen comprender el concepto de conjuntos difusos 
+y su representación funcional, implementar operaciones básicas como unión, intersección, complemento, inclusión e igualdad, 
+y analizar su comportamiento a través de pruebas unitarias. Además, se pretende fortalecer el razonamiento recursivo y 
+el uso de funciones puras sin estructuras imperativas, promoviendo el pensamiento declarativo y matemático.

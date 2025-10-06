@@ -30,6 +30,15 @@ class ConjuntosDifusos {
     f
   }
 
+  def union(cd1: ConjDifuso, cd2: ConjDifuso): ConjDifuso = {
+    def f(x: Int): Double = math.max(cd1(x), cd2(x))
+    f
+  }
+
+  def interseccion(cd1: ConjDifuso, cd2: ConjDifuso): ConjDifuso = {
+    def f(x: Int): Double = math.min(cd1(x), cd2(x))
+    f
+  }
 
   def igualdad(cd1: ConjDifuso, cd2: ConjDifuso): Boolean = {
     @annotation.tailrec

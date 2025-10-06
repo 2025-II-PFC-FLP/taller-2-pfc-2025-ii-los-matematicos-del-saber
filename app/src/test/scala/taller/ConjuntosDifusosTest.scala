@@ -23,7 +23,7 @@ class ConjuntosDifusosTest extends AnyFunSuite {
   val vacio: ConjDifuso = _ => 0.0
   val lleno: ConjDifuso = _ => 1.0
 
-  // ---- Tests para grande ----
+  //Tests para grande
   test("grande debe retornar 0.0 para valores menores o iguales a 0") {
     val g = grande(1, 2)
     assert(g(0) === 0.0)
@@ -55,7 +55,7 @@ class ConjuntosDifusosTest extends AnyFunSuite {
     assert(g(50) > 0.0 && g(50) < 1.0)
   }
 
-  // ---- Tests para complemento ----
+  //Tests para complemento
   test("complemento debe retornar 1 - grado de pertenencia para cualquier x") {
     val comp = complemento(cd1)
     assert(comp(3) === 0.8 +- 1e-9)
@@ -143,5 +143,80 @@ class ConjuntosDifusosTest extends AnyFunSuite {
     assert(inclusion(cd1, lleno))
     assert(inclusion(cd3, lleno))
     assert(inclusion(cd6, lleno))
+  }
+
+  // Test de union
+  test("union debe devolver el valor máximo de pertenencia entre dos conjuntos") {
+    val u = union(cd1, cd3)
+    (0 to 15).foreach { x =>
+      val esperado = math.max(cd1(x), cd3(x))
+      assert(u(x) === esperado +- 1e-9)
+    }
+  }
+
+  test("union de dos conjuntos idénticos debe ser igual al conjunto original") {
+    val u = union(cd4, cd5)
+    (0 to 10).foreach { x =>
+      assert(u(x) === cd4(x) +- 1e-9)
+    }
+  }
+
+  test("union con conjunto vacío debe ser el conjunto original") {
+    val u = union(cd1, vacio)
+    (0 to 10).foreach { x =>
+      assert(u(x) === cd1(x) +- 1e-9)
+    }
+  }
+
+  test("union con conjunto lleno debe dar siempre 1.0") {
+    val u = union(cd3, lleno)
+    (0 to 10).foreach { x =>
+      assert(u(x) === 1.0 +- 1e-9)
+    }
+  }
+
+  test("union debe devolver valores dentro del rango [0,1]") {
+    val u = union(cd1, cd3)
+    (0 to 20).foreach { x =>
+      val res = u(x)
+      assert(res >= 0.0 && res <= 1.0)
+    }
+  }
+  //Tests para interseccion
+  test("interseccion debe devolver el valor mínimo de pertenencia entre dos conjuntos") {
+    val i = interseccion(cd1, cd3)
+    (0 to 15).foreach { x =>
+      val esperado = math.min(cd1(x), cd3(x))
+      assert(i(x) === esperado +- 1e-9)
+    }
+  }
+
+  test("interseccion de dos conjuntos idénticos debe ser igual al conjunto original") {
+    val i = interseccion(cd4, cd5)
+    (0 to 10).foreach { x =>
+      assert(i(x) === cd4(x) +- 1e-9)
+    }
+  }
+
+  test("interseccion con conjunto lleno debe ser el conjunto original") {
+    val i = interseccion(cd1, lleno)
+    (0 to 10).foreach { x =>
+      assert(i(x) === cd1(x) +- 1e-9)
+    }
+  }
+
+  test("interseccion con conjunto vacío debe ser 0.0 en todo el dominio") {
+    val i = interseccion(cd3, vacio)
+    (0 to 10).foreach { x =>
+      assert(i(x) === 0.0 +- 1e-9)
+    }
+  }
+
+  test("interseccion debe devolver valores dentro del rango [0,1]") {
+    val i = interseccion(cd1, cd3)
+    (0 to 20).foreach { x =>
+      val res = i(x)
+      assert(res >= 0.0 && res <= 1.0)
+    }
   }
 }
